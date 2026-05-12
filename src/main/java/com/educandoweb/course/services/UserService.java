@@ -19,7 +19,7 @@ public class UserService {
     }
 
     public User findByIdUser(Long id) {
-        return userRepository.findById(id).get();
+        return userRepository.findById(id).orElseThrow(() -> new com.educandoweb.course.services.exceptions.ResourceNotFoundException(id));
     }
 
     public User insert(User obj) {
